@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Aegix",
+  "description": "Aegix phishing detection extension with live threat analysis.",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Aegix"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["activeTab", "scripting", "storage", "tabs", "notifications"],
+  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "16": "icons/icon16.svg",
+    "32": "icons/icon32.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["*.js", "*.css", "icons/*.svg"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
