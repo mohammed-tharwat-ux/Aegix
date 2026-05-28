@@ -1,3 +1,4 @@
+
 {
   "name": "aegix",
   "module": "Aegix-API.ts",
@@ -7,11 +8,15 @@
     "dev": "concurrently -k -n API,WEB -c cyan,magenta \"bun run --watch Aegix-API.ts\" \"vite --host 0.0.0.0\"",
     "dev:api": "bun run --watch Aegix-API.ts",
     "dev:web": "vite --host 0.0.0.0",
+
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc -b",
+
     "build:extension": "vite build --config extension/vite.config.ts && bun extension/copy-static.ts",
     "dev:extension": "vite build --watch --config extension/vite.config.ts",
-    "typecheck": "tsc -b",
-    "build": "tsc -b && vite build",
-    "start": "bun Aegix-API.ts",
+
+    "start": "bun run Aegix-API.ts",
+
     "preview": "vite preview --host 0.0.0.0"
   },
   "devDependencies": {
@@ -37,3 +42,4 @@
     "tailwindcss": "^4.1.8"
   }
 }
+
